@@ -1,27 +1,5 @@
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
-  branch: rails-7-compatibility
-  glob: ruby/hyper-store/*.gemspec
-  specs:
-    hyper-store (1.0.alpha1.8)
-      hyper-state (= 1.0.alpha1.8)
-      hyperstack-config (= 1.0.alpha1.8)
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
-  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
-  branch: rails-7-compatibility
-  glob: ruby/hyper-component/*.gemspec
-  specs:
-    hyper-component (1.0.alpha1.8)
-      hyper-state (= 1.0.alpha1.8)
-      hyperstack-config (= 1.0.alpha1.8)
-      opal-activesupport (~> 0.3.1)
-      react-rails (>= 2.4.0, < 3.0)
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
   revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/hyper-model/*.gemspec
@@ -30,41 +8,6 @@ GIT
       activemodel
       activerecord (>= 4.0.0)
       hyper-operation (= 1.0.alpha1.8)
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
-  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
-  branch: rails-7-compatibility
-  glob: ruby/hyper-operation/*.gemspec
-  specs:
-    hyper-operation (1.0.alpha1.8)
-      activerecord (>= 4.0.0)
-      hyper-component (= 1.0.alpha1.8)
-      mutations
-      opal-activesupport (~> 0.3.1)
-      tty-table
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
-  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
-  branch: rails-7-compatibility
-  glob: ruby/hyper-state/*.gemspec
-  specs:
-    hyper-state (1.0.alpha1.8)
-      hyperstack-config (= 1.0.alpha1.8)
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
-  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
-  branch: rails-7-compatibility
-  glob: ruby/hyperstack-config/*.gemspec
-  specs:
-    hyperstack-config (1.0.alpha1.8)
-      listen (~> 3.0)
-      opal (>= 0.11.0, < 1.1)
-      opal-browser
-      uglifier
-      websocket
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
@@ -80,6 +23,63 @@ GIT
       opal-rails
       rails (>= 5.0.0, < 8.0)
       react-rails (>= 2.4.0, < 3.0)
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: cfff539b83c71fef58839585c5440ce723beec34
+  branch: rails-7-compatibility
+  glob: ruby/hyper-store/*.gemspec
+  specs:
+    hyper-store (1.0.alpha1.8)
+      hyper-state (= 1.0.alpha1.8)
+      hyperstack-config (= 1.0.alpha1.8)
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  branch: rails-7-compatibility
+  glob: ruby/hyper-component/*.gemspec
+  specs:
+    hyper-component (1.0.alpha1.8)
+      hyper-state (= 1.0.alpha1.8)
+      hyperstack-config (= 1.0.alpha1.8)
+      opal-activesupport (~> 0.3.1)
+      react-rails (>= 2.4.0, < 3.0)
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  branch: rails-7-compatibility
+  glob: ruby/hyper-operation/*.gemspec
+  specs:
+    hyper-operation (1.0.alpha1.8)
+      activerecord (>= 4.0.0)
+      hyper-component (= 1.0.alpha1.8)
+      mutations
+      opal-activesupport (~> 0.3.1)
+      tty-table
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  branch: rails-7-compatibility
+  glob: ruby/hyper-state/*.gemspec
+  specs:
+    hyper-state (1.0.alpha1.8)
+      hyperstack-config (= 1.0.alpha1.8)
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  branch: rails-7-compatibility
+  glob: ruby/hyperstack-config/*.gemspec
+  specs:
+    hyperstack-config (1.0.alpha1.8)
+      listen (~> 3.0)
+      opal (>= 0.11.0, < 1.1)
+      opal-browser
+      uglifier
+      websocket
 
 GEM
   remote: https://rubygems.org/
