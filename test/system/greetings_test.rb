@@ -12,9 +12,9 @@ class GreetingsTest < ApplicationSystemTestCase
     assert_text "Greetings from Hyperstack"
   end
 
-  test "displays a running clock in HH:MM:SS format" do
+  test "displays a running clock in HH:MM:SS AM/PM format" do
     visit root_url
-    assert_text(/\d{2}:\d{2}:\d{2}/)
+    assert_text(/\d{1,2}:\d{2}:\d{2} [AP]M/)
   end
 
   test "displays the current date" do
@@ -24,9 +24,9 @@ class GreetingsTest < ApplicationSystemTestCase
 
   test "clock ticks" do
     visit root_url
-    first_time = find("p", text: /\d{2}:\d{2}:\d{2}/).text
+    first_time = find("p", text: /\d{1,2}:\d{2}:\d{2} [AP]M/).text
     sleep 2
-    second_time = find("p", text: /\d{2}:\d{2}:\d{2}/).text
+    second_time = find("p", text: /\d{1,2}:\d{2}:\d{2} [AP]M/).text
     assert_not_equal first_time, second_time, "Clock should have advanced"
   end
 

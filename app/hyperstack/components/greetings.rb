@@ -55,7 +55,7 @@ class Greetings < HyperComponent
           margin:        0,
           lineHeight:    1
         }) do
-          @time.strftime('%H:%M:%S')
+          @time.strftime('%I:%M:%S %p')
         end
       end
 
@@ -109,7 +109,7 @@ class Greetings < HyperComponent
           }) do
             SPAN(style: { color: '#e6edf3' }) { v.name }
             SPAN(style: { color: '#8b949e', fontSize: '0.8rem' }) do
-              v.created_at.strftime('%b %-d, %H:%M')
+              v.created_at.localtime.strftime('%b %-d, %I:%M %p')
             end
           end
         end
