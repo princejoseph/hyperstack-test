@@ -3,7 +3,7 @@ class Greetings < HyperComponent
     @time   = Time.now
     @name   = ''
     @saving = false
-    @dark   = false
+    @dark   = true
   end
 
   after_mount do
