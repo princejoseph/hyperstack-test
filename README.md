@@ -1,5 +1,7 @@
 # Hyperstack Rails 7 Test App
 
+**Live demo: https://hyperstack-demo-purple-surf-9402.fly.dev**
+
 A minimal Rails 7.2 app used to validate [Hyperstack](https://hyperstack.org) compatibility with Rails 7 and Ruby 3.
 
 This app serves as an integration test for the [`rails-7-compatibility` branch](https://github.com/princejoseph/hyperstack/tree/rails-7-compatibility) of the Hyperstack fork.
