@@ -60,3 +60,5 @@ end
 group :development do
   gem "foreman"
 end
+
+gem "dockerfile-rails", ">= 1.7", group: :development
