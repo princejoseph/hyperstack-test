@@ -81,7 +81,7 @@ class Greetings < HyperComponent
             disabled: @saving,
             style: { background: inp_bg, border: "1px solid #{border}",
                      borderRadius: '4px', color: text,
-                     padding: '0.4rem 0.75rem', fontSize: '0.9rem',
+                     padding: '0.4rem 0.75rem', fontSize: '1rem',
                      fontFamily: 'monospace', flexGrow: 1, outline: 'none' }
           ).on(:change) { |e| mutate @name = e.target.value }
 
