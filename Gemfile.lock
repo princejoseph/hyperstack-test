@@ -2,6 +2,16 @@ GIT
   remote: https://github.com/princejoseph/hyperstack.git
   revision: cfff539b83c71fef58839585c5440ce723beec34
   branch: rails-7-compatibility
+  glob: ruby/hyper-store/*.gemspec
+  specs:
+    hyper-store (1.0.alpha1.8)
+      hyper-state (= 1.0.alpha1.8)
+      hyperstack-config (= 1.0.alpha1.8)
+
+GIT
+  remote: https://github.com/princejoseph/hyperstack.git
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
+  branch: rails-7-compatibility
   glob: ruby/hyper-component/*.gemspec
   specs:
     hyper-component (1.0.alpha1.8)
@@ -12,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/hyper-model/*.gemspec
   specs:
@@ -23,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/hyper-operation/*.gemspec
   specs:
@@ -36,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/hyper-state/*.gemspec
   specs:
@@ -45,17 +55,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
-  branch: rails-7-compatibility
-  glob: ruby/hyper-store/*.gemspec
-  specs:
-    hyper-store (1.0.alpha1.8)
-      hyper-state (= 1.0.alpha1.8)
-      hyperstack-config (= 1.0.alpha1.8)
-
-GIT
-  remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/hyperstack-config/*.gemspec
   specs:
@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: cfff539b83c71fef58839585c5440ce723beec34
+  revision: 0eed48c1a626d690f539d19bf39103c0b13532d1
   branch: rails-7-compatibility
   glob: ruby/rails-hyperstack/*.gemspec
   specs:
@@ -190,6 +190,8 @@ GEM
     debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dockerfile-rails (1.7.10)
+      rails (>= 3.0.0)
     drb (2.2.3)
     erb (4.0.4)
       cgi (>= 0.3.3)
@@ -432,6 +434,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin
   x86_64-darwin
   x86_64-linux
@@ -441,6 +444,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  dockerfile-rails (>= 1.7)
   foreman
   hyper-component!
   hyper-model!
