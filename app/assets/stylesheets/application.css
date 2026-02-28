@@ -14,24 +14,169 @@
  *= require_self
  */
 
-body {
+body { margin: 0; }
+
+/* ── Theme variables ─────────────────────────────── */
+:root {
+  --bg:                 #ffffff;
+  --text:               #222;
+  --muted:              #888;
+  --accent:             #555;
+  --border:             #eee;
+  --inp-bg:             #ffffff;
+  --clock-color:        inherit;
+  --btn-active-bg:      #333;
+  --btn-inactive-bg:    #eee;
+  --btn-active-color:   #ffffff;
+  --btn-inactive-color: #999;
+}
+
+.dark {
+  --bg:                 #0d1117;
+  --text:               #e6edf3;
+  --muted:              #8b949e;
+  --accent:             #58a6ff;
+  --border:             #30363d;
+  --inp-bg:             #161b22;
+  --clock-color:        #3fb950;
+  --btn-active-bg:      #238636;
+  --btn-inactive-bg:    #21262d;
+  --btn-active-color:   #ffffff;
+  --btn-inactive-color: #8b949e;
+}
+
+/* ── Page shell ──────────────────────────────────── */
+.page {
+  font-family: monospace;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Toggle button ───────────────────────────────── */
+.toggle-wrap {
+  width: 50%;
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.dark .header { text-transform: uppercase; }
+
+/* ── Clock ───────────────────────────────────────── */
+.clock {
+  font-size: 4rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: var(--clock-color);
+}
+
+/* ── Date ────────────────────────────────────────── */
+.date {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Guestbook section ───────────────────────────── */
+.guestbook { width: 50%; }
+
+.guestbook-title {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.dark .guestbook-title { text-transform: uppercase; }
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ── Sign form ───────────────────────────────────── */
+.sign-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.name-input {
+  background: var(--inp-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  padding: 0.4rem 0.75rem;
+  font-size: 1rem;
+  font-family: monospace;
+  flex-grow: 1;
+  outline: none;
+}
+
+.sign-btn {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+.sign-btn:not(:disabled) {
+  background: var(--btn-active-bg);
+  color: var(--btn-active-color);
+  cursor: pointer;
+}
+
+.sign-btn:disabled {
+  background: var(--btn-inactive-bg);
+  color: var(--btn-inactive-color);
+  cursor: not-allowed;
+}
+
+/* ── Visitor list ────────────────────────────────── */
+.visitor-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-.guestbook {
-  width: 50%;
+.visitor-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
 }
 
-.clock {
-  font-size: 4rem;
+.visitor-time {
+  color: var(--muted);
+  font-size: 0.8rem;
 }
 
+/* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
-  .guestbook {
-    width: 100%;
-  }
-
-  .clock {
-    font-size: 2.5rem;
-  }
+  .guestbook, .toggle-wrap { width: 100%; }
+  .clock { font-size: 2.5rem; }
 }
