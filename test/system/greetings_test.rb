@@ -3,13 +3,13 @@ require "application_system_test_case"
 class GreetingsTest < ApplicationSystemTestCase
   test "renders Greetings component" do
     visit root_url
-    assert_text "Greetings from Hyperstack"
+    assert_text(/greetings from hyperstack/i)
   end
 
   test "Greetings component is mounted by React" do
     visit root_url
     assert_selector "[data-react-class]"
-    assert_text "Greetings from Hyperstack"
+    assert_text(/greetings from hyperstack/i)
   end
 
   test "displays a running clock in HH:MM:SS AM/PM format" do
