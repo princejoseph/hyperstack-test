@@ -1,30 +1,19 @@
 class Greetings < HyperComponent
   before_mount do
     @time   = Time.now
-    @visits = []
     @name   = ''
     @saving = false
   end
 
   after_mount do
     every(1) { mutate @time = Time.now }
-    load_visits
-  end
-
-  def load_visits
-    Hyperstack::HTTP.get('/visits') do |response|
-      mutate @visits = response.json if response.ok?
-    end
   end
 
   def sign_guestbook
     mutate @saving = true
-    Hyperstack::HTTP.post('/visits', payload: { name: @name }) do |response|
+    Visit.new(name: @name).save do |success|
       mutate do
-        if response.ok?
-          @visits = [response.json] + @visits
-          @name   = ''
-        end
+        @name   = '' if success
         @saving = false
       end
     end
@@ -50,8 +39,8 @@ class Greetings < HyperComponent
       end
 
       UL do
-        @visits.each do |v|
-          LI(key: v['id']) { "#{v['name']} at #{v['time']}" }
+        Visit.recent.each do |v|
+          LI(key: v.id) { v.name }
         end
       end
     end

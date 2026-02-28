@@ -13,6 +13,8 @@ require "hyperstack/server_side_auto_require.rb"
 
 Hyperstack.component_base_class = 'HyperComponent' # i.e. 'ApplicationComponent'
 
+Hyperstack.transport = :action_cable
+
 # prerendering is default :off, you should wait until your
 # application is relatively well debugged before turning on.
 
