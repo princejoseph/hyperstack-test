@@ -13,6 +13,11 @@ require "hyperstack/server_side_auto_require.rb"
 
 Hyperstack.component_base_class = 'HyperComponent' # i.e. 'ApplicationComponent'
 
+# Ensure HyperComponent base class is defined before Zeitwerk eager-loads
+# other components (e.g. in test/production mode alphabetical load order
+# would load greetings.rb before hyper_component.rb).
+require Rails.root.join('app/hyperstack/components/hyper_component')
+
 # prerendering is default :off, you should wait until your
 # application is relatively well debugged before turning on.
 
