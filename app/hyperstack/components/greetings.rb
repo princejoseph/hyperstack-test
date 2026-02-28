@@ -28,7 +28,7 @@ class Greetings < HyperComponent
       end
 
       # Clock
-      P(style: { fontSize: '4rem', letterSpacing: '0.05em', margin: '0' }) do
+      P(class: 'clock', style: { letterSpacing: '0.05em', margin: '0' }) do
         @time.strftime('%I:%M:%S %p')
       end
 
@@ -39,7 +39,7 @@ class Greetings < HyperComponent
       end
 
       # Guestbook section (half-width)
-      DIV(style: { width: '50%' }) do
+      DIV(class: 'guestbook') do
         H2(style: { fontSize: '0.85rem', color: '#888', marginBottom: '1rem',
                     borderBottom: '1px solid #eee', paddingBottom: '0.5rem' }) { 'Guestbook' }
 
