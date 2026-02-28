@@ -29,4 +29,17 @@ class GreetingsTest < ApplicationSystemTestCase
     second_time = find("p", text: /\d{2}:\d{2}:\d{2}/).text
     assert_not_equal first_time, second_time, "Clock should have advanced"
   end
+
+  test "shows guestbook form" do
+    visit root_url
+    assert_selector "input[type=text]"
+    assert_selector "button", text: "Sign"
+  end
+
+  test "can sign the guestbook" do
+    visit root_url
+    find("input[type=text]").fill_in(with: "Test Visitor")
+    find("button", text: "Sign").click
+    assert_text "Test Visitor", wait: 5
+  end
 end
