@@ -42,4 +42,30 @@ class GreetingsTest < ApplicationSystemTestCase
     find("button", text: "Sign").click
     assert_text "Test Visitor", wait: 5
   end
+
+  test "guestbook entry broadcasts in real-time to a second session" do
+    # Session B loads first. Wait for the visit list to render — this confirms
+    # React is mounted and HyperModel is active. ActionCable connects in
+    # parallel, so a brief sleep afterwards ensures subscription is complete.
+    using_session("session_b") do
+      visit root_url
+      assert_selector "ul li", wait: 20
+      sleep 3  # let ActionCable finish subscribing + connect-to-transport
+    end
+
+    # Session A signs the guestbook
+    using_session("session_a") do
+      visit root_url
+      find("input[type=text]").fill_in(with: "LiveVisitor")
+      find("button", text: "Sign").click
+      assert_text "LiveVisitor", wait: 5  # optimistic update confirms save
+    end
+
+    # Session B should receive the new entry via ActionCable — no page refresh
+    using_session("session_b") do
+      assert_text "LiveVisitor", wait: 10
+    end
+  ensure
+    Visit.where(name: "LiveVisitor").destroy_all
+  end
 end

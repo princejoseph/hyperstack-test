@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyper-component/*.gemspec
   specs:
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyper-model/*.gemspec
   specs:
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyper-operation/*.gemspec
   specs:
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyper-state/*.gemspec
   specs:
@@ -45,7 +45,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyper-store/*.gemspec
   specs:
@@ -55,7 +55,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/hyperstack-config/*.gemspec
   specs:
@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://github.com/princejoseph/hyperstack.git
-  revision: 5ce02b215cb9d4704ad3af349b344c4ee7862547
+  revision: 07f3fe4fb405582ae3dbbb5053feff9db939d619
   branch: rails-7-compatibility
   glob: ruby/rails-hyperstack/*.gemspec
   specs:
