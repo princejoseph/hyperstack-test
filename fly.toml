@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for hyperstack-demo-purple-surf-9402 on 2026-02-27T23:41:23-08:00
+# fly.toml app configuration file
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'hyperstack-demo-purple-surf-9402'
+app = 'hyperstack-demo'
 primary_region = 'iad'
 console_command = '/rails/bin/rails console'
 
