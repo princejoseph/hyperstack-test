@@ -1,11 +1,5 @@
 Hyperstack.import 'hyperstack/hotloader', client_only: true if Rails.env.development?
 
-# Hyperstack components are Opal/client-side code compiled by Sprockets.
-# Tell Zeitwerk to ignore app/hyperstack/components so it never tries to
-# eager-load or autoload them server-side (prevents load-order errors in CI
-# where alphabetical eager loading runs greetings.rb before hyper_component.rb).
-Rails.autoloaders.main.ignore(Rails.root.join('app/hyperstack/components'))
-
 # server_side_auto_require will patch the ActiveSupport Dependencies module
 # so that you can define classes and modules with files in both the
 # app/hyperstack/xxx and app/xxx directories.  For example you can split
