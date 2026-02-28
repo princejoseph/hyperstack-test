@@ -1,24 +1,87 @@
-# README
+# Hyperstack Rails 7 Test App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A minimal Rails 7.2 app used to validate [Hyperstack](https://hyperstack.org) compatibility with Rails 7 and Ruby 3.
 
-Things you may want to cover:
+This app serves as an integration test for the [`rails-7-compatibility` branch](https://github.com/princejoseph/hyperstack/tree/rails-7-compatibility) of the Hyperstack fork.
 
-* Ruby version
+## Stack
 
-* System dependencies
+- Ruby 3.1
+- Rails 7.2
+- Hyperstack (from `princejoseph/hyperstack`, branch `rails-7-compatibility`)
+- Opal (Ruby-to-JavaScript via Sprockets)
+- SQLite
 
-* Configuration
+## Getting started
 
-* Database creation
+```bash
+bundle install
+bin/rails db:create db:migrate
+```
 
-* Database initialization
+Start the server (with Hyperstack hot-loader for development):
 
-* How to run the test suite
+```bash
+bundle exec foreman start
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Or just the Rails server without hot-loading:
 
-* Deployment instructions
+```bash
+bin/rails server
+```
 
-* ...
+Visit http://localhost:3000 — you should see the `Greetings` Hyperstack component rendered by React.
+
+## Running tests
+
+```bash
+bin/rails test:system
+```
+
+System tests use Selenium + headless Chrome. Make sure `google-chrome` or `google-chrome-stable` is installed.
+
+## Project structure
+
+```
+app/
+  hyperstack/
+    components/
+      greetings.rb   # Opal/React component (client-side only)
+  views/
+    welcome/
+      index.html.erb # Mounts the Greetings component via react-rails
+```
+
+## What this tests
+
+| Scenario | Status |
+|---|---|
+| `bundle install` resolves with Rails 7.2 | ✅ |
+| `rails hyperstack:install` generator runs | ✅ |
+| Server boots without errors | ✅ |
+| Greetings component renders | ✅ |
+| System tests pass locally | ✅ |
+| System tests pass in GitHub Actions CI | ✅ |
+
+## Key fix: Zeitwerk and Hyperstack components
+
+Hyperstack components (`app/hyperstack/components/`) are Opal/client-side code
+compiled by Sprockets — they should never be loaded by Rails' server-side
+autoloader. In CI, `eager_load = true` causes Zeitwerk to alphabetically
+eager-load all files, which loads `greetings.rb` before `HyperComponent` is
+defined.
+
+The fix in `config/initializers/hyperstack.rb`:
+
+```ruby
+Rails.autoloaders.main.ignore(Rails.root.join('app/hyperstack/components'))
+```
+
+This tells Zeitwerk to skip that directory entirely, regardless of eager loading.
+
+## Related
+
+- [Hyperstack fork (rails-7-compatibility)](https://github.com/princejoseph/hyperstack/tree/rails-7-compatibility)
+- [Upstream PR #460](https://github.com/hyperstack-org/hyperstack/pull/460)
+- [Hyperstack docs](https://docs.hyperstack.org)
