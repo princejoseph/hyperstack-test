@@ -20,14 +20,10 @@ class Greetings < HyperComponent
   end
 
   render do
-    DIV(style: {
-      fontFamily: 'monospace',
-      padding:    '2rem',
-      maxWidth:   '700px'
-    }) do
+    DIV(style: { fontFamily: 'monospace', padding: '2rem' }) do
 
       # Header
-      P(style: { color: '#555', fontSize: '1.2rem', marginBottom: '1.5rem' }) do
+      P(style: { color: '#555', fontSize: '1.2rem' }) do
         'Greetings from Hyperstack'
       end
 
