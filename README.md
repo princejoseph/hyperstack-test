@@ -72,13 +72,17 @@ autoloader. In CI, `eager_load = true` causes Zeitwerk to alphabetically
 eager-load all files, which loads `greetings.rb` before `HyperComponent` is
 defined.
 
-The fix in `config/initializers/hyperstack.rb`:
+This is fixed upstream in the Hyperstack railtie
+(`hyperstack-config/lib/hyperstack/rail_tie.rb`):
 
 ```ruby
-Rails.autoloaders.main.ignore(Rails.root.join('app/hyperstack/components'))
+initializer "hyperstack.ignore_client_only_paths" do
+  Rails.autoloaders.main.ignore(Rails.root.join('app/hyperstack/components'))
+end
 ```
 
-This tells Zeitwerk to skip that directory entirely, regardless of eager loading.
+This tells Zeitwerk to skip that directory entirely — no manual workaround
+needed in application code.
 
 ## Related
 
