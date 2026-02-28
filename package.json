@@ -1,4 +1,9 @@
 {
   "name": "hyperstack-test",
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.11.0",
+  "dependencies": {
+    "react": "16",
+    "react-dom": "16",
+    "react_ujs": "^3.2.1"
+  }
 }
