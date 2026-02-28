@@ -40,8 +40,12 @@ class Greetings < HyperComponent
 
       # Guestbook section (half-width)
       DIV(class: 'guestbook') do
-        H2(style: { fontSize: '0.85rem', color: '#888', marginBottom: '1rem',
+        H2(style: { fontSize: '0.85rem', color: '#888', marginBottom: '0.25rem',
                     borderBottom: '1px solid #eee', paddingBottom: '0.5rem' }) { 'Guestbook' }
+
+        P(style: { fontSize: '0.75rem', color: '#aaa', marginBottom: '1rem' }) do
+          'Sign below — open this page in another tab or on your phone to see new entries appear instantly.'
+        end
 
         # Sign form
         DIV(style: { display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }) do
