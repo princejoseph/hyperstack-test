@@ -177,6 +177,7 @@ body { margin: 0; }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
+  .page { padding: 1rem; }
   .guestbook, .toggle-wrap { width: 100%; }
   .clock { font-size: 2.5rem; }
 }
