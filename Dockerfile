@@ -2,7 +2,7 @@
 # check=error=true
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=3.1.0
+ARG RUBY_VERSION=3.4.9
 FROM ruby:$RUBY_VERSION-slim AS base
 
 LABEL fly_launch_runtime="rails"
@@ -51,8 +51,11 @@ ENV PATH="/usr/local/node/bin:$PATH"
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
+# Don't delete "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git as the generated
+# Dockerfile does: Bundler re-derives each git-sourced gem's spec on every boot,
+# and all eight Hyperstack gems come from git.
 RUN bundle install && \
-    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache && \
     bundle exec bootsnap precompile --gemfile
 
 # Install node modules
@@ -80,6 +83,7 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    git config --system --add safe.directory '*' && \
     mkdir /data && \
     chown -R 1000:1000 db log storage tmp /data
 USER 1000:1000

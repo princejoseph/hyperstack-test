@@ -24,3 +24,7 @@
 node_modules
 .pnp.*
 .DS_Store
+
+# opal-rails 3 (a runtime dep of rails-hyperstack) writes a build manifest here.
+/app/assets/builds/*
+!/app/assets/builds/.keep
